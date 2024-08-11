@@ -9,4 +9,4 @@ class person:
         print(f"Student类创建了一个对象")
 
 p1=person("老王",30,"男","中国","上海市")#创建类对象，并给类对象赋值
-print(f"他的姓名{p1.mname},他的年龄{p1.mage},他的性别{p1.mgender},\n他的国籍为{p1.mnationality},他的居住地{p1.mwork_place}")12
+print(f"他的姓名{p1.mname},他的年龄{p1.mage},他的性别{p1.mgender},\n他的国籍为{p1.mnationality},他的居住地{p1.mwork_place}")
