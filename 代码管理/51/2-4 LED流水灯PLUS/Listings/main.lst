@@ -1,0 +1,65 @@
+C51 COMPILER V9.54   MAIN                                                                  11/09/2024 09:36:59 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.l
+                    -st) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <INTRINS.H>  // 延时模块所需的头文件
+   3          
+   4          void Delay1ms(unsigned int xms)   //@12.000MHz---通过传入参数的方式实现任意时间延时
+   5          {
+   6   1        unsigned char i, j;
+   7   1        while(xms)
+   8   1        {
+   9   2          i = 2;
+  10   2          j = 239;
+  11   2        do
+  12   2        {
+  13   3          while (--j);
+  14   3        } while (--i);
+  15   2          xms--;
+  16   2        }
+  17   1      }
+  18          
+  19          
+  20            void main()//主函数传入延时时间
+  21            {
+  22   1          while(1)
+  23   1          {
+  24   2            P2 = 0xFE;  // 点亮 D1(二进制1111 1110)
+  25   2            Delay1ms(300);
+  26   2            P2 = 0xFD;  // 点亮 D2(二进制1111 1101)
+  27   2            Delay1ms(300);
+  28   2            P2 = 0xFB;  // 点亮 D3(二进制1111 1011)
+  29   2            Delay1ms(300);
+  30   2            P2 = 0xF7;  // 点亮 D4(二进制1111 0111)
+  31   2            Delay1ms(300);
+  32   2            P2 = 0xEF;  // 点亮 D5(二进制1110 1111)
+  33   2            Delay1ms(300);
+  34   2            P2 = 0xDF;  // 点亮 D6(二进制1101 1111)
+  35   2            Delay1ms(300);
+  36   2            P2 = 0xBF;  // 点亮 D7(二进制1011 1111)
+  37   2            Delay1ms(300);
+  38   2            P2 = 0x7F;  // 点亮 D8(二进制0111 1111)
+  39   2            Delay1ms(300);
+  40   2          }
+  41   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     74    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
